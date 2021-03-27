@@ -1,10 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strcapitalize.c                                 :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jhong <jhong@student.42seoul.kr>           +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/03/27 22:29:09 by jhong             #+#    #+#             */
+/*   Updated: 2021/03/27 22:30:56 by jhong            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <stdio.h>
 
 int		is_number(char c)
 {
 	if (c > '0' && c <= '9')
 		return (1);
-	return 0;
+	return (0);
 }
 
 int		is_uppercase(char c)
@@ -21,7 +33,7 @@ int		is_lowercase(char c)
 	return (0);
 }
 
-int 	str_to_alpha_num(char c)
+int		str_to_alpha_num(char c)
 {
 	if (is_number(c))
 		return (1);
@@ -32,7 +44,7 @@ int 	str_to_alpha_num(char c)
 	return (0);
 }
 
-int 	word_find_capitalize(char *str, int idx)
+int		word_find_capitalize(char *str, int idx)
 {
 	int is_word_first;
 	int is_word_last;
@@ -67,7 +79,6 @@ char	*ft_strcapitalize(char *str)
 
 int		main(void)
 {
-	char str[70] = "salut, comment tu vas ? 42mots quarante-deux; cinquante+et+un";
-
+	char str[90] = "salut, comment tu vas ? 42mots quarante-deux; cinquante+et+un";
 	printf("%s", ft_strcapitalize(str));
 }
