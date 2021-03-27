@@ -6,7 +6,7 @@
 /*   By: jhong <jhong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/27 22:29:09 by jhong             #+#    #+#             */
-/*   Updated: 2021/03/27 22:38:00 by jhong            ###   ########.fr       */
+/*   Updated: 2021/03/28 00:17:09 by jhong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int		word_find_capitalize(char *str, int idx)
 		if (str[idx] >= 'A' && str[idx] <= 'Z')
 			str[idx] += 32;
 	}
-	is_word_first = idx - 1;
+	is_word_last = idx - 1;
 	return (is_word_last);
 }
 
@@ -54,4 +54,10 @@ char	*ft_strcapitalize(char *str)
 		i++;
 	}
 	return (str);
+}
+
+int		main(void)
+{
+	char str[90] = "salut, comment tu vas ? 42mots quarante-deux;";
+	printf("%s", ft_strcapitalize(str));
 }
