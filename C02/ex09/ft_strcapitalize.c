@@ -6,40 +6,19 @@
 /*   By: jhong <jhong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/27 22:29:09 by jhong             #+#    #+#             */
-/*   Updated: 2021/03/27 22:30:56 by jhong            ###   ########.fr       */
+/*   Updated: 2021/03/27 22:38:00 by jhong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 
-int		is_number(char c)
-{
-	if (c > '0' && c <= '9')
-		return (1);
-	return (0);
-}
-
-int		is_uppercase(char c)
-{
-	if (c >= 'A' && c <= 'Z')
-		return (1);
-	return (0);
-}
-
-int		is_lowercase(char c)
+int		str_to_alpha_num(char c)
 {
 	if (c >= 'a' && c <= 'z')
 		return (1);
-	return (0);
-}
-
-int		str_to_alpha_num(char c)
-{
-	if (is_number(c))
+	if (c >= 'A' && c <= 'Z')
 		return (1);
-	if (is_uppercase(c))
-		return (1);
-	if (is_lowercase(c))
+	if (c > '0' && c <= '9')
 		return (1);
 	return (0);
 }
@@ -75,10 +54,4 @@ char	*ft_strcapitalize(char *str)
 		i++;
 	}
 	return (str);
-}
-
-int		main(void)
-{
-	char str[90] = "salut, comment tu vas ? 42mots quarante-deux; cinquante+et+un";
-	printf("%s", ft_strcapitalize(str));
 }
