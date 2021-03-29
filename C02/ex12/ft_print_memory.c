@@ -41,6 +41,7 @@ void	print_xxd(char *str, unsigned int idx, unsigned int size)
 			write(1, "  ", 2);
 		else
 			print_16_hex(str[idx]);
+		idx++;
 	}
 }
 
@@ -53,8 +54,8 @@ void	*ft_print_memory(void *addr, unsigned int size)
 	while (size > 0)
 	{
 		idx = 0;
-		print_address((address, 0);
-		print_xxd((unsigned long)addr, idx, size);
+		print_address((unsigned long)addr, 0);
+		print_xxd(address, idx, size);
 		write(1, " ", 1);
 		while (idx < 16 && idx < size)
 		{
@@ -70,7 +71,7 @@ void	*ft_print_memory(void *addr, unsigned int size)
 
 int		main(void)
 {
-	char str[] = "Bonjour les aminches\t\n\tc est fo";
+	char str[] = "Bonjour les aminches\t\n\tc  est fou\ttout\tce qu on peut faire avec\t\n\tprint_memory\n\n\n\tlol.lol\n ";
 	void *addr = (void *)str;
-	ft_print_memory(addr, 45);
+	ft_print_memory(addr, 92);
 }
