@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft.h                                               :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jhong <jhong@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/04/04 13:47:38 by jhong             #+#    #+#             */
+/*   Updated: 2021/04/04 19:28:21 by jhong            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef FT_H
 # define FT_H
 
@@ -15,35 +27,29 @@
 
 int g_size;
 
-// process.c
 void	ft_first_process(int *input, int **map, int ***flag);
 void	ft_row_max(int idx, int **map, int ***flag);
 void	ft_col_max(int idx, int **map, int ***flag);
 void	ft_col_row_1(int idx, int **map, int ***flag);
 void	ft_put_map(int idx, int **map, int ***flag, int value);
 
-// algorithm.c
 int		**ft_last_process(int idx, int *input, int **map, int ***flag);
-void	ft_logic(int *input, int **map, int ***flag);
+void	ft_total_process(int *input, int **map, int ***flag);
 
-// check.c
 int		ft_check(int *input, int **map);
-int		ft_col_count(int col, int **map, int dir);
-int		ft_row_count(int row, int **map, int dir);
+int		ft_col_count(int col_idx, int **map, int dir);
+int		ft_row_count(int row_idx, int **map, int dir);
 
-// rush01.c
 int		malloc_for_map(int ***map);
 int		malloc_for_flag(int ****flag);
-void	malloc_free(int *input, int **map, int ***flag);
+void	malloc_fot_free(int *input, int **map, int ***flag);
 
-// input.c
 int		is_non_charset(char c, char *charset);
 int		ft_word_count(char *str, char *charset);
-int		ft_sqrt(int word_size);
+int		ft_get_size(int word_size);
 int		*ft_split(char *str, char *charset);
-int		count(int *input);
+int		ft_count(int *input);
 
-// print.c
 void	ft_putchar(char c);
 void	ft_print_map(int **map);
 int		ft_error(void);

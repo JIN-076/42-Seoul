@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   input.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jhong <jhong@student.42seoul.kr>           +#+  +:+       +#+        */
+/*   By: jhong <jhong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/03 12:58:07 by jhong             #+#    #+#             */
-/*   Updated: 2021/04/04 13:06:11 by jhong            ###   ########.fr       */
+/*   Updated: 2021/04/04 19:32:07 by jhong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@ int			is_non_charset(char c, char *charset)
 
 int			ft_word_count(char *str, char *charset)
 {
-	int 	cnt;
-	int 	idx;
+	int		cnt;
+	int		idx;
 
 	cnt = 0;
 	idx = 0;
@@ -48,9 +48,9 @@ int			ft_word_count(char *str, char *charset)
 	return (cnt);
 }
 
-int			ft_sqrt(int word_size)
+int			ft_get_size(int word_size)
 {
-	int map_size;
+	int		map_size;
 
 	map_size = 0;
 	if (word_size == 16)
@@ -73,12 +73,12 @@ int			ft_sqrt(int word_size)
 int			*ft_split(char *str, char *charset)
 {
 	int		int_idx;
-	int 	word_size;
-	int 	idx;
+	int		word_size;
+	int		idx;
 	int		*str_int;
 
 	word_size = ft_word_count(str, charset);
-	if (ft_sqrt(word_size) == 0)
+	if (ft_get_size(word_size) == 0)
 		return (0);
 	str_int = (int*)malloc(sizeof(int) * (word_size));
 	int_idx = -1;
@@ -92,15 +92,12 @@ int			*ft_split(char *str, char *charset)
 	return (str_int);
 }
 
-int		count(int *input)
+int			ft_count(int *input)
 {
-	int cnt;
+	int		cnt;
 
 	cnt = 0;
 	while (input[cnt] >= 1 && input[cnt] <= 9)
-	{
 		cnt++;
-	}
 	return (cnt);
 }
-

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jhong <jhong@student.42seoul.kr>           +#+  +:+       +#+        */
+/*   By: jhong <jhong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/04 01:17:37 by jhong             #+#    #+#             */
-/*   Updated: 2021/04/04 13:27:08 by jhong            ###   ########.fr       */
+/*   Updated: 2021/04/04 19:28:06 by jhong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int		ft_check(int *input, int **map)
 	return (1);
 }
 
-int		ft_col_count(int col, int **map, int dir)
+int		ft_col_count(int col_idx, int **map, int dir)
 {
 	int cnt;
 	int highest;
@@ -53,10 +53,10 @@ int		ft_col_count(int col, int **map, int dir)
 		i = g_size - 1;
 	while (1)
 	{
-		if (map[i][col] > highest)
+		if (map[i][col_idx] > highest)
 		{
 			cnt++;
-			highest = map[i][col];
+			highest = map[i][col_idx];
 			if (highest == g_size)
 				return (cnt);
 		}
@@ -65,7 +65,7 @@ int		ft_col_count(int col, int **map, int dir)
 	return (0);
 }
 
-int		ft_row_count(int row, int **map, int dir)
+int		ft_row_count(int row_idx, int **map, int dir)
 {
 	int cnt;
 	int highest;
@@ -79,10 +79,10 @@ int		ft_row_count(int row, int **map, int dir)
 		i = g_size - 1;
 	while (1)
 	{
-		if (map[row][i] > highest)
+		if (map[row_idx][i] > highest)
 		{
 			cnt++;
-			highest = map[row][i];
+			highest = map[row_idx][i];
 			if (highest == g_size)
 				return (cnt);
 		}

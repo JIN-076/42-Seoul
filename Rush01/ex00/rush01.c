@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rush01.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jhong <jhong@student.42seoul.kr>           +#+  +:+       +#+        */
+/*   By: jhong <jhong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/03 18:22:46 by jhong             #+#    #+#             */
-/*   Updated: 2021/04/04 13:32:10 by jhong            ###   ########.fr       */
+/*   Updated: 2021/04/04 19:32:56 by jhong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ int		malloc_for_flag(int ****flag)
 	return (1);
 }
 
-void	malloc_free(int *input, int **map, int ***flag)
+void	malloc_for_free(int *input, int **map, int ***flag)
 {
 	int i;
 	int j;
@@ -91,13 +91,10 @@ int		main(int argc, char *argv[])
 	input = ft_split(argv[1], " ");
 	if (input == 0 && ft_error())
 		return (0);
-	g_size = ft_sqrt(count(input));
-	if (!malloc_for_map(&map) || !malloc_for_flag(&flag))
-	{
-		ft_error();
+	g_size = ft_get_size(ft_count(input));
+	if ((!malloc_for_map(&map) || !malloc_for_flag(&flag)) && ft_error())
 		return (0);
-	}
-	ft_logic(input, map, flag);
-	malloc_free(input, map, flag);
+	ft_total_process(input, map, flag);
+	malloc_for_free(input, map, flag);
 	return (0);
 }

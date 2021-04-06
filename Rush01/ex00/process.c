@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   process.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jhong <jhong@student.42seoul.kr>           +#+  +:+       +#+        */
+/*   By: jhong <jhong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/03 18:37:55 by jhong             #+#    #+#             */
-/*   Updated: 2021/04/04 13:26:14 by jhong            ###   ########.fr       */
+/*   Updated: 2021/04/04 19:32:04 by jhong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ void	ft_first_process(int *input, int **map, int ***flag)
 				ft_col_max(idx, map, flag);
 			else
 				ft_row_max(idx - (g_size * 2), map, flag);
-
 		}
 		else if (input[idx] == 1)
 			ft_col_row_1(idx, map, flag);
@@ -47,8 +46,7 @@ void	ft_row_max(int idx, int **map, int ***flag)
 		i = row * g_size;
 		while (++value <= g_size)
 		{
-			ft_put_map(i, map, flag, value);
-			i++;
+			ft_put_map(i++, map, flag, value);
 		}
 	}
 	else
@@ -57,8 +55,7 @@ void	ft_row_max(int idx, int **map, int ***flag)
 		i = (row + 1) * g_size - 1;
 		while (++value <= g_size)
 		{
-			ft_put_map(i, map, flag, value);
-			i--;
+			ft_put_map(i--, map, flag, value);
 		}
 	}
 }
