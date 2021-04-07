@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   algorithm.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jhong <jhong@student.42seoul.kr>           +#+  +:+       +#+        */
+/*   By: jhong <jhong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/03 18:22:36 by jhong             #+#    #+#             */
-/*   Updated: 2021/04/04 13:31:34 by jhong            ###   ########.fr       */
+/*   Updated: 2021/04/04 19:31:28 by jhong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int		**ft_last_process(int idx, int *input, int **map, int ***flag)
 {
 	int i;
-	int **result;
+	int **final;
 
 	if (idx == g_size * g_size)
 		return (ft_check(input, map) ? map : 0);
@@ -24,14 +24,14 @@ int		**ft_last_process(int idx, int *input, int **map, int ***flag)
 		i = -1;
 		while (++i < g_size)
 		{
-			if (map[idx / g_size][idx % g_size])
+			if (map[idx / g_size][idx % g_size] != 0)
 				return (ft_last_process(idx + 1, input, map, flag));
 			if (flag[COL][idx % g_size][i] || flag[ROW][idx / g_size][i])
 				continue;
 			ft_put_map(idx, map, flag, i + 1);
-			result = ft_last_process(idx + 1, input, map, flag);
-			if (result)
-				return (result);
+			final = ft_last_process(idx + 1, input, map, flag);
+			if (final != 0)
+				return (final);
 			map[idx / g_size][idx % g_size] = 0;
 			flag[COL][idx % g_size][i] = FALSE;
 			flag[ROW][idx / g_size][i] = FALSE;
@@ -40,7 +40,7 @@ int		**ft_last_process(int idx, int *input, int **map, int ***flag)
 	return (0);
 }
 
-void	ft_logic(int *input, int **map, int ***flag)
+void	ft_total_process(int *input, int **map, int ***flag)
 {
 	int i;
 	int j;

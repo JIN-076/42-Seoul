@@ -20,5 +20,5 @@ char	*ft_strncat(char *dest, char *src, unsigned int nb)
 int		main(void)
 {
 	char dest[100] = "hello";
-	printf("%s\n", ft_strncat(dest, "world", 2));
+	printf("%s\n", ft_strncat(dest, "world", 4));
 }

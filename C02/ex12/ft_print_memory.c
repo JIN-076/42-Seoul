@@ -15,7 +15,7 @@ void	print_16_hex(unsigned char c)
 	is_printable("0123456789abcdef"[c % 16]);
 }
 
-void	print_address(unsigned long addr, int depth)
+void	print_address(unsigned int addr, int depth)
 {
 	char mod;
 
@@ -54,7 +54,7 @@ void	*ft_print_memory(void *addr, unsigned int size)
 	while (size > 0)
 	{
 		idx = 0;
-		print_address((unsigned long)addr, 0);
+		print_address((unsigned int)addr, 0);
 		print_xxd(address, idx, size);
 		write(1, " ", 1);
 		while (idx < 16 && idx < size)

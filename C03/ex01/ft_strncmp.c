@@ -20,7 +20,7 @@ int		main(void)
 	printf("%d\n", ft_strncmp("hello", "hello", 5));
 	printf("%d\n", ft_strncmp("hello", "hallo", 1));
 	printf("%d\n", ft_strncmp("hello", "hallo", 2));
-	printf("%d\n", ft_strncmp("hello", "hello", 6));
+	printf("%d\n", ft_strncmp("hello", "hello", 3));
 	printf("%d\n", ft_strncmp("hello", "world", 6));
 	printf("%d\n", ft_strncmp("world", "hello", 4));
 	printf("%d\n", ft_strncmp("hello", "world", 0));
