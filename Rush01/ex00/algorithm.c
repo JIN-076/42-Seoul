@@ -12,8 +12,6 @@
 
 #include "ft.h"
 
-//extern int g_size;
-
 int		**ft_last_process(int idx, int *input, int **map, int ***flag)
 {
 	int i;
