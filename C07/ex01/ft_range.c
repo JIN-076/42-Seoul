@@ -1,27 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_boolean.h                                       :+:      :+:    :+:   */
+/*   ft_range.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jhong <jhong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/06 18:13:52 by jhong             #+#    #+#             */
-/*   Updated: 2021/04/07 20:37:13 by jhong            ###   ########.fr       */
+/*   Created: 2021/04/07 20:49:04 by jhong             #+#    #+#             */
+/*   Updated: 2021/04/07 20:50:24 by jhong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_BOOLEAN_H
-# define FT_BOOLEAN_H
+#include <stdlib.h>
 
-# include <unistd.h>
+int			*ft_range(int min, int max)
+{
+	int		*range;
+	int		i;
 
-# define SUCCESS 0
-# define EVEN(x) (x % 2 == 0)
-# define EVEN_MSG "I have an even number of arguments.\n"
-# define ODD_MSG "I have an odd number of arguments.\n"
-# define TRUE 1
-# define FALSE 0
+	if (min >= max)
+		return (NULL);
+	range = malloc(sizeof(int) * (max - min));
+	i = -1;
+	while (++i < max - min)
+		range[i] = min + i;
+	return (range);
+}
 
-typedef	int		t_bool;
+int		main(){
+	int i = -1;
+	int *n = ft_range(-12, -10);
+	if (n)
+		while(++i < 24)
+			printf("%d ", n[i]);
+}
 
-#endif

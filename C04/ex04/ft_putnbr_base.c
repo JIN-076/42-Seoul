@@ -12,10 +12,8 @@ void	ft_print_base(unsigned int number, char *base, int len)
 
 	mod = number % len;
 	if (number / len)
-	{
 		ft_print_base(number / len, base, len);
-	}
-	ft_putchar(mod + '0');
+	ft_putchar(base[mod]);
 }
 
 int		base_is_valid(char *base)
@@ -23,21 +21,24 @@ int		base_is_valid(char *base)
 	int len;
 	int flag[256];
 	int i;
+	int j;
 
 	len = 256;
 	i = 0;
-	while (i < len)
+	while (i++ < len)
 		flag[i] = 0;
-	if (len <= 1)
-		return (0);
-	while (base[++len] != '\0')
+	j = 0;
+	while (base[++j] != '\0')
 	{
-		if (flag[(int)base[len]] == 1)
+		if (flag[(int)base[j]] == 1)
 			return (0);
-		if (base[len] == '+' || base[len == '-'])
+		if (base[j] == '+' || base[j] == '-')
 			return (0);
-		flag[(int)base[len]] = 1;
+		flag[(int)base[j]] = 1;
 	}
+	if (j <= 1)
+		return (0);
+	return (j);
 }
 
 void	ft_putnbr_base(int nbr, char *base)
@@ -45,6 +46,7 @@ void	ft_putnbr_base(int nbr, char *base)
 	unsigned int	number;
 	int 			len;
 
+	len = base_is_valid(base);
 	if (len)
 	{
 		if (nbr < 0)
@@ -60,5 +62,5 @@ void	ft_putnbr_base(int nbr, char *base)
 
 int		main(void)
 {
-	ft_putnbr_base(97, "poneyvif");
+	ft_putnbr_base(15, "0123456789");
 }

@@ -1,27 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_boolean.h                                       :+:      :+:    :+:   */
+/*   ft_stock_str.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jhong <jhong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/06 18:13:52 by jhong             #+#    #+#             */
-/*   Updated: 2021/04/07 20:37:13 by jhong            ###   ########.fr       */
+/*   Created: 2021/04/07 20:40:28 by jhong             #+#    #+#             */
+/*   Updated: 2021/04/07 20:41:38 by jhong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_BOOLEAN_H
-# define FT_BOOLEAN_H
+#ifndef FT_STOCK_STR_H
+# define FT_STOCK_STR_H
 
-# include <unistd.h>
-
-# define SUCCESS 0
-# define EVEN(x) (x % 2 == 0)
-# define EVEN_MSG "I have an even number of arguments.\n"
-# define ODD_MSG "I have an odd number of arguments.\n"
-# define TRUE 1
-# define FALSE 0
-
-typedef	int		t_bool;
+typedef	struct	s_stock_str
+{
+	int		size;
+	char	*str;
+	char	*copy;
+}				t_stock_str;
 
 #endif
