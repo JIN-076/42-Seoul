@@ -6,7 +6,7 @@
 /*   By: jhong <jhong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/07 21:36:02 by jhong             #+#    #+#             */
-/*   Updated: 2021/04/07 21:40:15 by jhong            ###   ########.fr       */
+/*   Updated: 2021/04/09 12:11:49 by jhong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,4 +59,12 @@ char		*ft_strjoin(int size, char **strs, char *sep)
 	join_str = malloc(sizeof(char) * len);
 	ft_join(size, join_str, strs, sep);
 	return (join_str);
+}
+
+#include <stdio.h>
+
+int		main()
+{
+	char *strs[] = {"hello world", "bye world", "123456789"};
+	printf("%p", ft_strjoin(0, strs, "AAaAA"));
 }

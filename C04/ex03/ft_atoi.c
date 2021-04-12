@@ -25,5 +25,5 @@ int		ft_atoi(char *str)
 
 int main()
 {
-	printf("%d\n",ft_atoi(" -+--++--2147a483648"));
+	printf("%d\n",ft_atoi(" -+--++-2147a483648"));
 }
