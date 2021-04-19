@@ -3,91 +3,110 @@
 /*                                                        :::      ::::::::   */
 /*   ft_convert_base2.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jhong <jhong@student.42seoul.kr>           +#+  +:+       +#+        */
+/*   By: jhong <jhong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/07 22:39:34 by jhong             #+#    #+#             */
-/*   Updated: 2021/04/08 00:09:53 by jhong            ###   ########.fr       */
+/*   Updated: 2021/04/08 21:45:10 by jhong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 
-int		base_from_is_valid(char *base)
+int		ft_base_int_len(char *str, char *base, int base_len)
 {
-	int len;
-	int flag[256];
-	int i;
+	int	cnt;
+	int	idx;
 
-	len = 256;
-	i = 0;
-	while (i++ < len)
-		flag[i] = 0;
-	while (base[++i] != '\0')
+	cnt = -1;
+	while (str[++cnt] != '\0')
 	{
-		if (flag[(int)base[i]] == 1)
-			return (0);
-		if (base[i] == '+' || base[i == '-'])
-			return (0);
-		if (base[i] == '\t' || base[i] == '\v' || base[i] == '\n')
-			return (0);
-		if (base[i] == '\f' || base[i] == '\r' || base[i] == ' ')
-			return (0);
-		flag[(int)base[i]] = 1;
+		idx = 0;
+		while (str[cnt] != base[idx] && idx < base_len)
+			idx++;
+		if (idx == base_len)
+			break ;
 	}
-	if (i <= 1)
-		return (0);
-	return (i);
+	return (cnt);
 }
 
-int		base_to_is_valid(char *base)
+int		ft_pow(int base, int exp)
 {
-	int len;
-	int flag[256];
-	int i;
-	int j;
+	int	ret;
 
-	len = 256;
-	i = 0;
-	while (i++ < len)
-		flag[i] = 0;
-	j = 0;
-	while (base[++j] != '\0')
-	{
-		if (flag[(int)base[j]] == 1)
-			return (0);
-		if (base[j] == '+' || base[j] == '-')
-			return (0);
-		flag[(int)base[j]] = 1;
-	}
-	if (j <= 1)
-		return (0);
-	return (j);
+	ret = 1;
+	while (exp--)
+		ret *= base;
+	return (ret);
 }
 
-int		ft_atoi_base(char *str, char *base)
+int		ft_str_to_int_base(char *str, char *base, int len)
 {
-	int result;
-	int sign;
-	int len;
+	int	idx;
+	int	ret;
+	int	str_len;
 
-	result = 0;
+	idx = 0;
+	ret = 0;
+	str_len = (ft_base_int_len(str, base, len));
+	while (*str != '\0')
+	{
+		idx = 0;
+		while (*str != base[idx] && idx < len)
+			idx++;
+		if (idx == len)
+			break ;
+		ret += idx * ft_pow(len, --str_len);
+		str++;
+	}
+	return (ret);
+}
+
+int		base_is_valid(char *base)
+{
+	int	len;
+	int	flag[256];
+
+	len = 256;
+	while (len--)
+		flag[len] = 0;
+	while (base[++len] != '\0')
+	{
+		if (flag[(int)base[len]] == 1)
+			return (0);
+		if (base[len] == '+' || base[len] == '-')
+			return (0);
+		if (base[len] == '\t' || base[len] == '\v' || base[len] == '\n')
+			return (0);
+		if (base[len] == '\f' || base[len] == '\r' || base[len] == ' ')
+			return (0);
+		flag[(int)base[len]] = 1;
+	}
+	return (len);
+}
+
+int		ft_atoi_base(char *str, char *base, int len)
+{
+	int	sign;
+	int	idx;
+
 	sign = 1;
-	len = base_from_is_valid(base);
-	if (len)
+	while (*str != '\0')
+		if ((*str >= 9 && *str <= 13) || *str == 32)
+			str++;
+		else
+			break ;
+	while (*str == '+' || *str == '-')
 	{
-		while (*str == '\t' || *str == '\n' || *str == '\v' || *str ==  '\f' || *str == '\r' || *str == ' ')
-			++str;
-		while (*str == '+' || *str == '-')
-		{
-			if (*str++ == '-')
-				sign *= -1;
-		}
-		while (*str >= '0' && *str <= '9')
-		{
-			result *= 10;
-			result += (sign * (*str++ - '0'));
-		}
-		return (result);
+		idx = 0;
+		if (*str == '-')
+			sign *= -1;
+		else if (*str == '+')
+			sign *= 1;
+		while (*str != base[idx] && idx < len)
+			idx++;
+		if (idx < len)
+			break ;
+		++str;
 	}
-	return (0);
+	return (sign * ft_str_to_int_base(str, base, len));
 }

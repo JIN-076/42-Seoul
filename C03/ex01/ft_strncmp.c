@@ -1,5 +1,16 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jhong <jhong@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/04/01 14:29:29 by jhong             #+#    #+#             */
+/*   Updated: 2021/04/01 20:27:28 by jhong            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <stdio.h>
-#include <string.h>
 
 int		ft_strncmp(char *s1, char *s2, unsigned int n)
 {
@@ -13,15 +24,4 @@ int		ft_strncmp(char *s1, char *s2, unsigned int n)
 		s2++;
 	}
 	return (*s1 - *s2);
-}
-
-int		main(void)
-{
-	printf("%d\n", ft_strncmp("hello", "hello", 5));
-	printf("%d\n", ft_strncmp("hello", "hallo", 1));
-	printf("%d\n", ft_strncmp("hello", "hallo", 2));
-	printf("%d\n", ft_strncmp("hello", "hello", 3));
-	printf("%d\n", ft_strncmp("hello", "world", 6));
-	printf("%d\n", ft_strncmp("world", "hello", 4));
-	printf("%d\n", ft_strncmp("hello", "world", 0));
 }

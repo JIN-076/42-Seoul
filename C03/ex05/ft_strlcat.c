@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jhong <jhong@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/04/01 14:30:06 by jhong             #+#    #+#             */
+/*   Updated: 2021/04/01 14:30:07 by jhong            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <stdio.h>
 
 unsigned int	ft_strlcat(char *dest, char *src, unsigned int size)
@@ -13,14 +25,12 @@ unsigned int	ft_strlcat(char *dest, char *src, unsigned int size)
 		src_len++;
 	while (dest[i] != '\0')
 	{
-		i++;
-		if (i < size)
+		if (i++ < size)
 			dest_len++;
 	}
 	while (i + 1 < size && *src != '\0')
 	{
-		i++;
-		dest[i] = *src++;
+		dest[i++] = *src++;
 	}
 	dest[i] = '\0';
 	return (dest_len + src_len);

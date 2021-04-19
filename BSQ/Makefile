@@ -1,22 +1,23 @@
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
-TARGET = BSQ
+TARGET = bsq 
 SRCDIR = srcs
-SOURCES = $(addprefix $(SRCDIR)/*.c)
-OBJECTS = $(addprefix $(SRCDIR)/$(SOURCES:.c=.o))
+INCLUDE = -Iincludes
+SOURCES = $(addprefix $(SRCDIR)/, bsq.c info.c main.c map.c print.c max_square.c)
+OBJECTS = $(SOURCES:.c=.o)
 
 all : $(TARGET)
 
 $(TARGET): $(OBJECTS)
-	$(CC) $(FLAGS) -o $@ $^
+	$(CC) $(CFLAGS) $(INCLUDE) -o $@ $^
 
 %.o : %.c
-	$(CC) -c $(CFLAGS) $< -I ./includes -o $@
+	$(CC) -c $(CFLAGS) $< $(INCLUDE) -o $@
 
 clean :
 	rm -f $(OBJECTS)
 
 fclean :
-	rm -f $(TARGET)
+	rm -f $(TARGET) $(OBJECTS)
 
 re : fclean all

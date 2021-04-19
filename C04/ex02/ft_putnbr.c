@@ -1,4 +1,15 @@
-#include <stdio.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jhong <jhong@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/04/08 11:34:15 by jhong             #+#    #+#             */
+/*   Updated: 2021/04/08 14:58:22 by jhong            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <unistd.h>
 #include <limits.h>
 
@@ -25,16 +36,10 @@ void	ft_putnbr(int nb)
 
 	if (nb < 0)
 	{
-		ft_putchar('-');
 		number = -nb;
+		ft_putchar('-');
 	}
 	else
 		number = nb;
-}
-
-int		main(void)
-{
-	ft_putnbr(42);
-	ft_putnbr(INT_MAX);
-	ft_putnbr(INT_MIN);
+	print_number(number);
 }

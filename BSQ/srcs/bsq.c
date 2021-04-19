@@ -6,7 +6,7 @@
 /*   By: jhong <jhong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/12 19:34:02 by jhong             #+#    #+#             */
-/*   Updated: 2021/04/12 21:16:21 by jhong            ###   ########.fr       */
+/*   Updated: 2021/04/13 18:30:17 by gpark            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,16 @@ int			**read_map(char *file, int *info)
 	int		fd_read;
 	int		fd_success;
 
-	if ((fd_success = open(file, 0)) == -1)
+	if ((fd_success = open(file, O_RDWR)) == -1)
 		return (FALSE);
-	fd_success = open(file, 0);
-	if (valid_information(fd_success, fd_read, info) == 0)
+	fd_read = open(file, 0);
+	if (fd_read == -1)
 		return (FALSE);
-	if (map == (int**)malloc(sizeof(int*) * info[LINE]) == 0)
+	if (!information(fd_success, fd_read, info))
 		return (FALSE);
-
+	if (!(map = (int**)malloc(sizeof(int*) * info[LINE])))
+		return (FALSE);
+	if (!valid_map(fd_success, fd_read, info, map))
+		return (FALSE);
 	return (map);
 }

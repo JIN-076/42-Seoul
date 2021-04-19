@@ -1,4 +1,15 @@
-#include <stdio.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jhong <jhong@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/04/08 11:34:42 by jhong             #+#    #+#             */
+/*   Updated: 2021/04/08 11:35:09 by jhong            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <unistd.h>
 
 int		ft_atoi(char *str)
@@ -8,7 +19,7 @@ int		ft_atoi(char *str)
 
 	result = 0;
 	sign = 1;
-	while (*str == '\t' || *str == '\n' || *str == '\v' || *str ==  '\f' || *str == '\r' || *str == ' ')
+	while ((*str >= 9 && *str <= 13) || *str == 32)
 		++str;
 	while (*str == '+' || *str == '-')
 	{
@@ -21,9 +32,4 @@ int		ft_atoi(char *str)
 		result += (sign * (*str++ - '0'));
 	}
 	return (result);
-}
-
-int main()
-{
-	printf("%d\n",ft_atoi(" -+--++-2147a483648"));
 }

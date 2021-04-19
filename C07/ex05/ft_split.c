@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jhong <jhong@student.42seoul.kr>           +#+  +:+       +#+        */
+/*   By: jhong <jhong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/07 21:44:39 by jhong             #+#    #+#             */
-/*   Updated: 2021/04/07 22:38:19 by jhong            ###   ########.fr       */
+/*   Updated: 2021/04/08 11:55:18 by jhong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include <stdio.h>
 
 int		is_charset(char c, char *charset)
 {
@@ -90,13 +89,4 @@ char	**ft_split(char *str, char *charset)
 	}
 	strs[i] = 0;
 	return (strs);
-}
-
-int main()
-{
-	char **strs;
-	int i = 0;
-	strs = ft_split("............", ".");
-	while (strs[i])
-		printf("%s\n", strs[i++]);
 }

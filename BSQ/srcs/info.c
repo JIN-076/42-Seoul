@@ -6,7 +6,7 @@
 /*   By: jhong <jhong@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/12 19:55:15 by jhong             #+#    #+#             */
-/*   Updated: 2021/04/12 21:09:30 by jhong            ###   ########.fr       */
+/*   Updated: 2021/04/13 16:43:47 by gpark            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int			information(int fd_success, int fd_read, int *info)
 	buf[length] = 0;
 	info_success = valid_information(info, buf, length);
 	free(buf);
-	if (info_success == FALSE)
+	if (!info_success)
 		return (FALSE);
 	return (TRUE);
 }
@@ -39,22 +39,22 @@ int			valid_information(int *info, char *buf, int length)
 	int		i;
 	int		flag[128];
 
-	i = 0;
-	while (i++ < 128)
-		flag[i] = FALSE;
-	i = -1;
+	i = 127;
+	while (i >= 0)
+		flag[i--] = FALSE;
 	while (++i < length - 3)
-		if (buf[i] < '0' && buf[i] > '9')
+		if (buf[i] < '0' || buf[i] > '9')
 			return (FALSE);
-	while (++i < length)
+	while (i < length)
 	{
 		if (buf[i] < 32 || buf[i] > 126)
 			return (FALSE);
 		if (flag[(int)buf[i]] == TRUE)
 			return (FALSE);
 		flag[(int)buf[i]] = TRUE;
+		i++;
 	}
-	if ((info[LINE] == ft_atoi(buf, length - 3)) == 0)
+	if ((info[LINE] = ft_atoi(buf, length - 3)) == 0)
 		return (FALSE);
 	info[EMPTY] = (int)buf[length - 3];
 	info[OBSTACLE] = (int)buf[length - 2];
@@ -70,7 +70,7 @@ int			ft_atoi(char *buf, int idx)
 	while (idx--)
 	{
 		ret *= 10;
-		ret += *buf++ -'0';
+		ret += *buf++ - '0';
 	}
 	return (ret);
 }

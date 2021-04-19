@@ -1,4 +1,15 @@
-#include <stdio.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jhong <jhong@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/04/08 11:33:52 by jhong             #+#    #+#             */
+/*   Updated: 2021/04/08 11:33:59 by jhong            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <unistd.h>
 
 void	ft_putchar(char c)
@@ -16,10 +27,4 @@ void	ft_putstr(char *str)
 		ft_putchar(str[i]);
 		i++;
 	}
-}
-
-int		main(void)
-{
-	ft_putstr("hello world");
-	return (0);
 }

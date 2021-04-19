@@ -91,12 +91,3 @@ char	**ft_split(char *str, char *charset)
 	strs[i] = 0;
 	return (strs);
 }
-
-int main()
-{
-	char **strs;
-	int i = 0;
-	strs = ft_split("............", ".");
-	while (strs[i])
-		printf("%s\n", strs[i++]);
-}

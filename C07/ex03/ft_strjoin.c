@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jhong <jhong@student.42seoul.kr>           +#+  +:+       +#+        */
+/*   By: jhong <jhong@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/07 21:36:02 by jhong             #+#    #+#             */
-/*   Updated: 2021/04/09 12:11:49 by jhong            ###   ########.fr       */
+/*   Updated: 2021/04/08 11:49:44 by jhong            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ int			ft_strlen(char *str)
 
 void		ft_join(int size, char *join_str, char **strs, char *sep)
 {
-	int 	i;
-	int 	j;
+	int		i;
+	int		j;
 
 	i = -1;
 	while (++i < size)
@@ -59,12 +59,4 @@ char		*ft_strjoin(int size, char **strs, char *sep)
 	join_str = malloc(sizeof(char) * len);
 	ft_join(size, join_str, strs, sep);
 	return (join_str);
-}
-
-#include <stdio.h>
-
-int		main()
-{
-	char *strs[] = {"hello world", "bye world", "123456789"};
-	printf("%p", ft_strjoin(0, strs, "AAaAA"));
 }

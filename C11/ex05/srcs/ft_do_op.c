@@ -25,6 +25,8 @@ int			ft_do_op(char argv, int n1, int n2)
 		result = n1 * n2;
 	else if (argv == '/')
 		result = n1 / n2;
+	else if (argv == '%')
+		result = n1 % n2;
 	return (result);
 }
 
@@ -40,7 +42,7 @@ int			main(int argc, char *argv[])
 	int		n1;
 	int		n2;
 	int		result;
-	char op;
+	char	op;
 
 	if (argc != 4)
 		return (0);

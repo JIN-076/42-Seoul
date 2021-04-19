@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strstr.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jhong <jhong@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/04/01 14:29:48 by jhong             #+#    #+#             */
+/*   Updated: 2021/04/01 19:54:24 by jhong            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <stdio.h>
 
 char	*ft_strstr(char *str, char *to_find)
@@ -24,11 +36,5 @@ char	*ft_strstr(char *str, char *to_find)
 		}
 		i++;
 	}
-	return (0);
-}
-
-int		main(void)
-{
-	printf("%s\n", ft_strstr("hello", "llo"));
 	return (0);
 }

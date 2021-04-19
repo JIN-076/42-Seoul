@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strcat.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jhong <jhong@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/04/01 14:29:32 by jhong             #+#    #+#             */
+/*   Updated: 2021/04/01 19:49:18 by jhong            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <stdio.h>
 
 char	*ft_strcat(char *dest, char *src)
@@ -15,12 +27,4 @@ char	*ft_strcat(char *dest, char *src)
 	}
 	*d = '\0';
 	return (dest);
-}
-
-int		main(void)
-{
-	char dest[] = "aaabbb";
-
-	printf("%s\n", ft_strcat(dest, "BlockDMask"));
-	return (0);
 }
